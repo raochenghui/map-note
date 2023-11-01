@@ -1,0 +1,22 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* 地图容器必须要有高度和宽度才会显示 */
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+.attribution-box {
+    width: 100px;
+    height: 50px;
+    display: inline-block;
+    background-color: antiquewhite;
+    line-height: 50px;
+    text-align: center;
+}

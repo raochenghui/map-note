@@ -1,0 +1,69 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    position: absolute;
+    right: 0;
+    left: 0;
+}
+
+.controls {
+    width: 100%;
+    position: absolute;
+    z-index: 9999;
+    text-align: center;
+    top: 20px;
+}
+
+.controls button {
+    color: #fff;
+    background-color: #1677ff;
+    box-shadow: 0 2px 0 rgba(5, 145, 255, 0.1);
+    font-size: 14px;
+    height: 32px;
+    padding: 4px 15px;
+    border-radius: 6px;
+    outline: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.controls button:active {
+    transform: translateY(10px);
+    transition: all 1s;
+}
+
+.leaflet-container .marker-path-normal {
+    background-color: #1677ff;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+
+.leaflet-container .marker-path-start {
+    background-color: rgb(170, 245, 59);
+}
+
+.leaflet-container .marker-path-end {
+    background-color: rgb(245, 103, 103);
+}
+
+.leaflet-container .marker-path-normal .marker-num {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 7px;
+}
