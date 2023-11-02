@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="initial-scale=1.0, user-scalable=no, width=device-width"
+    />
+    <title>AMap-异步加载地图</title>
+    <link
+      rel="stylesheet"
+      href="https://cache.amap.com/lbs/static/main1119.css"
+    />
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+      window.onApiLoaded = function () {
+        var map = new AMap.Map("container", {
+          center: [117.000923, 36.675807],
+          zoom: 11,
+        });
+        map.plugin(["AMap.ToolBar"], function () {
+          map.addControl(new AMap.ToolBar());
+        });
+      };
+      var url =
+        "https://webapi.amap.com/maps?v=2.0&key=a69d3abbfadc3b75763b1f6b664e25ed&callback=onApiLoaded";
+      var jsapi = document.createElement("script");
+      jsapi.charset = "utf-8";
+      jsapi.src = url;
+      document.head.appendChild(jsapi);
+    </script>
+  </body>
+</html>

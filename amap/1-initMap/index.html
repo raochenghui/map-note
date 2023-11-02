@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AMap-高德地图的基本使用</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css"
+    />
+    <script src="https://webapi.amap.com/maps?v=2.0&key=a69d3abbfadc3b75763b1f6b664e25ed"></script>
+    <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+  </head>
+  <body>
+    <div id="container"></div>
+    <div class="input-card" style="width: 16rem">
+      <h4>创建、销毁地图</h4>
+      <div id="btns">
+        <div class="input-item">
+          <button id="create-btn" class="btn" style="margin-right: 1rem">
+            创建地图
+          </button>
+          <button id="destroy-btn" class="btn">销毁地图</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./script.js"></script>
+</html>
