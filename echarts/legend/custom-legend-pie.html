@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.3/echarts.common.min.js"></script>
+  </head>
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      background: #bfc;
+    }
+    html,
+    body,
+    div {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      border: 1px solid rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      padding: 20px;
+    }
+    #echart {
+      width: 600px;
+      height: 600px;
+    }
+    .legend-box {
+      width: 300px;
+    }
+    .legend-box .legend {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 10px 20px;
+      margin: 10px;
+      background-color: antiquewhite;
+      color: hotpink;
+      cursor: pointer;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div id="echart"></div>
+      <div class="legend-box"></div>
+    </div>
+  </body>
+  <script>
+    const chart = echarts.init(document.getElementById("echart"));
+    const data = [
+      { value: 1048, name: "Search Engine" },
+      { value: 735, name: "Direct" },
+      { value: 580, name: "Email" },
+      { value: 484, name: "Union Ads" },
+      { value: 300, name: "Video Ads" },
+    ];
+
+    var option = {
+      title: {
+        text: "Referer of a Website",
+        subtext: "Fake Data",
+        left: "center",
+      },
+      tooltip: {
+        trigger: "item",
+      },
+      legend: {
+        orient: "vertical",
+        left: "left",
+        data: data.map((item) => item.name),
+      },
+      series: [
+        {
+          name: "Access From",
+          type: "pie",
+          radius: "50%",
+          data: data,
+          emphasis: {
+            itemStyle: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: "rgba(0, 0, 0, 0.5)",
+            },
+          },
+        },
+      ],
+    };
+
+    chart.setOption(option);
+
+    const legendBox = document.querySelector(".legend-box");
+    let html = "";
+
+    data.forEach((item) => {
+      let div = `<div class="legend" onclick="legendClick(this)" onmouseover="legendMouseover(this)" onmouseout="legendMouseout(this)">${item.name}</div>`;
+      html += div;
+    });
+    legendBox.innerHTML = html;
+
+    function legendClick(e) {
+      const name = e.innerText;
+      chart.dispatchAction({
+        type: "legendToggleSelect",
+        // 图例名称
+        name: name,
+      });
+    }
+
+    // 注意一定要配置legend.data 不然不生效
+    function legendMouseover(e) {
+      const name = e.innerText;
+      const index = option.legend.data.findIndex((i) => i == name);
+      chart.dispatchAction({
+        type: "highlight",
+        // seriesIndex: 0,
+        // dataIndex: index,
+
+        name: name,
+      });
+    }
+
+    function legendMouseout(e) {
+      const name = e.innerText;
+      const index = option.legend.data.findIndex((i) => i == name);
+      chart.dispatchAction({
+        type: "downplay",
+        // seriesIndex: 0,
+        // dataIndex: index,
+
+        name: name,
+      });
+    }
+  </script>
+</html>
