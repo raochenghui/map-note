@@ -1,0 +1,23 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* 地图容器必须要有高度和宽度才会显示 */
+#container {
+    width: 100%;
+    height: 100%;
+}
+
+.input-card {
+    width: 70px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}

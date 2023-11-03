@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AMap-鼠标样式选择</title>
+    <link
+      rel="stylesheet"
+      href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://at.alicdn.com/t/font_873139_0v65kqy674.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://webapi.amap.com/maps?v=2.0&key=a69d3abbfadc3b75763b1f6b664e25ed"></script>
+    <script
+      type="text/javascript"
+      src="https://cache.amap.com/lbs/static/addToolbar.js"
+    ></script>
+  </head>
+  <body>
+    <div id="container"></div>
+    <ul id="cursorList" class="input-card">
+      <li>
+        <input
+          name="cursor"
+          value="default"
+          type="radio"
+          onclick="switchCursor(this)"
+        />
+        <span class="iconfont icon-Cursor"></span>
+      </li>
+      <li>
+        <input
+          name="cursor"
+          value="pointer"
+          type="radio"
+          onclick="switchCursor(this)"
+          checked
+        />
+        <span class="iconfont icon--Hand-Cursor"></span>
+      </li>
+      <li>
+        <input
+          name="cursor"
+          value="move"
+          type="radio"
+          onclick="switchCursor(this)"
+        />
+        <span class="iconfont icon-cursor-move"></span>
+      </li>
+      <li>
+        <input
+          name="cursor"
+          value="crosshair"
+          type="radio"
+          onclick="switchCursor(this)"
+        />
+        <span class="iconfont icon-cross"></span>
+      </li>
+    </ul>
+  </body>
+  <script src="./script.js"></script>
+</html>
